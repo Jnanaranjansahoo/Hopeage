@@ -1,4 +1,4 @@
-﻿@model List<Photo>
+﻿@model Photo
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,10 +6,10 @@
 
 
 <body>
-    
-     @* <div class="col-2">
-        <img src="@Model.Client.ImageUrl" width="100%"
-             style="border-radius:5px; border:1px solid #bbb9b9" />
+
+    @* <div class="col-2">
+    <img src="@Model.Client.ImageUrl" width="100%"
+    style="border-radius:5px; border:1px solid #bbb9b9" />
     </div>  *@
     <!-- Topbar End -->
     <!-- Navbar Start -->
@@ -96,40 +96,31 @@
 
                 <h1>Our Top Mission</h1>
             </div>
-            
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 mb-4">
-                    @foreach (var obj in Model)
-                    {
-                        <div class="cat-item position-relative overflow-hidden rounded mb-2">
-                            <img class="img-fluid" src="~/img/94.jpg" alt="">
-                            <a class="cat-overlay text-white text-decoration-none" href="">
 
-                            </a>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <form method="post" class="row">
+                        <input asp-for="Id" hidden />
+                        <div class="cat-item position-relative overflow-hidden rounded mb-2">
+                            <img class="img-fluid" src="" alt="">
+                            <input type="image" asp-for="Image" class="form-control border-0 shadow" />
+
                         </div>
                         <div class="text-center py-4">
                             <a class="h6 text-decoration-none text-truncate" href="">
-                                <i class="bi bi-pencil-square"></i> Edit</a>
-                            <a class="h6 text-decoration-none text-truncate pl-2" href="">
-                                <i class="bi bi-trash-fill"></i> Delete
+                                <button type="submit" class="btn btn-primary form-control">Update</button>
                             </a>
-                        </div>
-                    }
-                    </div>
-                </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-6 mb-4">
-                    
-                        <div class="cat-item position-relative overflow-hidden rounded mb-2">
-                            <img  class="img-fluid" src="~/img/add-png-8.png" alt="">
-                            <a asp-controller="Photo" asp-action="Create" class="cat-overlay text-white text-decoration-none" >
-                                Add
+
+                        </div>>
+                        <div class="text-center py-4">
+                            <a asp-controller="Photo" asp-action="Index" class="btn btn-outline-primary border form-control">
+                                Back To List
                             </a>
+
                         </div>
-                        
+                    </form>
                 </div>
             </div>
-            
 
         </div>
     </div>
